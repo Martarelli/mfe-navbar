@@ -1,1 +1,55 @@
-<p>navbar works!</p>
+<mat-sidenav-container class="sidenav-container">
+  <!-- Side Nav -->
+  <mat-sidenav
+  #sidenav
+  class="side-nav"
+  mode="over"
+  [(opened)]="isSidenavOpen"
+  (closedStart)="isSidenavOpen = false"
+>
+  <!-- Logo -->
+  <div class="sidenav-logo">
+    <img src="assets/logo.png" alt="Logo" />
+  </div>
+
+  <!-- Menu Lateral -->
+  <mat-nav-list>
+    <a mat-list-item routerLink="/home" (click)="sidenav.close()" routerLinkActive="active-link">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </a>
+    <a mat-list-item routerLink="/clients" (click)="sidenav.close()" routerLinkActive="active-link">
+      <mat-icon>groups</mat-icon>
+      <span>Clientes</span>
+    </a>
+    <a mat-list-item routerLink="/selected" (click)="sidenav.close()" routerLinkActive="active-link">
+      <mat-icon>person</mat-icon>
+      <span>Clientes selecionados</span>
+    </a>
+  </mat-nav-list>
+</mat-sidenav>
+
+  <!-- Top Navbar -->
+  <mat-toolbar color="primary" class="navbar">
+    <!-- Botão Hamburguer -->
+    <button mat-icon-button (click)="isSidenavOpen = true">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <!-- Logo -->
+    <img src="assets/logo.png" class="logo" alt="Logo" />
+
+    <!-- Menu principal -->
+    <nav class="menu-links">
+      <a routerLink="/clients" routerLinkActive="active">Clientes</a>
+      <a routerLink="/selected" routerLinkActive="active">Clientes selecionados</a>
+      <a routerLink="/logout">Sair</a>
+    </nav>
+
+    <!-- Saudação -->
+    <div class="user-greeting">
+      <span>Olá, <strong>Usuário!</strong></span>
+    </div>
+  </mat-toolbar>
+
+</mat-sidenav-container>
