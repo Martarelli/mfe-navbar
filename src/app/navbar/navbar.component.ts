@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit } from '@angular/core';
 import {
   BreakpointObserver,
   Breakpoints } from '@angular/cdk/layout';
@@ -25,9 +28,11 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class NavbarComponent implements OnInit{
 
-  isSidenavOpen = false;
-  isMobile = false;
-  opened = true;
+  @Input() userName?: string;
+
+  isSidenavOpen: boolean = false;
+  isMobile: boolean = false;
+  opened: boolean = true;
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
